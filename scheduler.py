@@ -11,7 +11,7 @@ table = {} #table to hold the CPU time that used each Mobile
 mutex = BoundedSemaphore() #semaphore to avoid race condition when accesing the queue
 
 host = 'localhost'   # Symbolic name meaning all available interfaces
-port = 4017 # Arbitrary non-privileged port
+port = int(sys.argv[1]) # Arbitrary non-privileged port
  
 # Datagram (udp) socket
 try :
@@ -61,7 +61,7 @@ def producerWork():
 #now keep talking with the client
 while totalMsg:
     # receive data from client (data, addr)
-    d = s.recvfrom(1024)
+    d = s.recvfrom(port)
     data = d[0]
     addr = d[1]
      
@@ -69,7 +69,7 @@ while totalMsg:
         break
      
     receiver = Thread(target=receiverWork, args=(data,)) #Thread that will put the messages in the queue
-    producer = Thread(target=producerWork) #Thread that will get the messages in the queue, one by one, and will execute them
+    producer = Thread(target=producerWork) #Thread that will take the messages from the queue, one by one, and will execute them
 
     receiver.start() #starting the receiver thread
     producer.start() #starting the producer thread
