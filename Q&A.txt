@@ -1,0 +1,24 @@
+#############################################
+#    Author: Julio de la Cruz Natera        #
+#    Course: CCOM 4017 - Operating Systems  #
+#    Assignment 02: Threads and Scheduling  #
+#############################################
+
+What is/are the critical regions of the program?
+	The critical regions are when the threads are accesing the queue, using get or put.
+
+What was used to protect the critical regions and to avoid race conditions?
+	To protect the critical regions and to avoid race condition when inserting in the queue I used semaphores. 
+	Before inserting a message in the queue a semaphore is acquire and when the thread finished inserting in 
+	the queue the semaphore will be released. Also when a thread is going to get an item from the queue, first 
+	I have to acquire the semaphore and release it when the thread got the message. Besides this semaphore I have 
+	another one to block the consumer thread when the queue is empty. I acquire this last semaphore before getting a 
+	message from the queue and release it after inserting an item in the queue by the producer thread. 
+
+
+What was used to block the consumers until there is data in the queue?
+	As I said in the last question, I used a semaphore. This semaphore will be acquire before the consumer thread
+	try to get a message from the queue and will be release it when the producer put a message in the queue. Note 
+	that if the consumer thread try to acquire this semaphore and there is nothing in the queue, the consumer thread
+	will be block until the producer thread put a message in the queue. 
+

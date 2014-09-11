@@ -1,4 +1,8 @@
-README
+#############################################
+#    Author: Julio de la Cruz Natera        #
+#    Course: CCOM 4017 - Operating Systems  #
+#    Assignment 02: Threads and Scheduling  #
+#############################################
 
 Description:
 
@@ -20,7 +24,9 @@ How to use the program:
 		syntax: python mobile.py <mobile ID> <server address> <server port> (i.e python mobile.py 1 localhost 4017)
 	5) Repeat instruction number 4 until you reach the limit of messages that the server allows
 
-People that helped me in the process:
+People that helped and discussed issues with me in the process:
 
 	- Luis Albertorio
 	- José de la Vega
+
+I used this page to configure the sockets: http://www.binarytides.com/programming-udp-sockets-in-python/

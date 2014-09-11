@@ -1,9 +1,15 @@
+#############################################
+#    Author: Julio de la Cruz Natera        #
+#    Course: CCOM 4017 - Operating Systems  #
+#    Assignment 02: Threads and Scheduling  #
+#############################################
+
 from random import randint #for random
 import socket   #for sockets
 import sys  #for exit
  
-#The user must change these two variables to his own parameters
-totalJobs = 2 #quantity of jobs that will be executed or sent, 
+#The user should change these two variables to his own parameters
+totalJobs = 6 #quantity of jobs that will be executed or sent, 
 timeLimit = 5 #time limit that the job will be using the CPU
 #--------------------------------------------------------------
 
